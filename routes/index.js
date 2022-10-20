@@ -13,6 +13,14 @@ router.post('/', function(req, res, next) {
   res.render('login', { title: 'ATN SHOP', message: "Please input username and password" });
 });
 
+router.post('/select_box', async function(req, res, next) {
+  let shop_id = req.body.shops;
+  let table = await display_product(shop_id);
+  let box_string = await gen_box();
+  res.render('admin', {title: 'welcome to admin', name: "Director", select_box: box_string, table_string: table});
+
+});
+
 // Process for login POST request
 router.post('/login', async function(req, res, next) {
   let username =req.body.username;
@@ -24,14 +32,17 @@ router.post('/login', async function(req, res, next) {
     res.render('users', {title: 'welcome to user', name: username, table_string: table})
   }
   else if(authenticated == true & role == 'director'){
+      let table = await display_product(shop_id);
       let box_string = await gen_box();
-      res.render('admin', {title: 'welcome to admin', name: username, select_box: box_string})
+      res.render('admin', {title: 'welcome to admin', name: username, select_box: box_string, table_string: table})
   }
   else{
     res.render('login', { title: 'ATN SHOP', message: 'wrong user password' });
   }
 
 });
+
+
 module.exports = router;
 
 
