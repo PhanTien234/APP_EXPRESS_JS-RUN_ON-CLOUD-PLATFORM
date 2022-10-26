@@ -12,10 +12,37 @@ var pg_con = require('./pg_config')
         }
     }
     const data = await pg_con.query(pro_query)
+    let table_string = `
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .add-button {
+      background-color: #4dff00;
+    }
+    .update-button {
+      background-color: #e8ff00;
+    }
+    .delete-button {
+      background-color: #ff0032;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+    <h2>Table products</h2>
+    <table>
+      <tr>`;
     // init the table_string, with the table tag
-    let table_string = 
-    `<table border="1">
-        <tr>`;
         //display all table's header
         let num_fields = data.fields.length;
         for( let i = 0; i< num_fields; i++){
@@ -35,8 +62,8 @@ var pg_con = require('./pg_config')
             }
             table_string += 
             `<td>
-            <button type='submit' name='crud' value='delete'>Delete</button>
-            <button type='submit' name='crud' value='update'>Update</button>
+            <button type='submit' class= 'delete-button' name='crud' value='delete'>Delete</button>
+            <button type='submit' class='update-button' name='crud' value='update'>Update</button>
             </td>
             </tr></form>`
         }
@@ -48,7 +75,7 @@ var pg_con = require('./pg_config')
         }
         table_string += `
         <td>
-            <button type='submit' name='crud' value='add'>Add</button>
+            <button type='submit' class= 'add-button' name='crud' value='add'>Add</button>
         </td> `;
     table_string += `</tr></form></table>`;
     // console.log("DATA: -->");
