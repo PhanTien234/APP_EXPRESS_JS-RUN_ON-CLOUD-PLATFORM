@@ -2,7 +2,28 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .add-button {
+      background-color: #4dff00;
+    }
+    .update-button {
+      background-color: #e8ff00;
+    }
+    .delete-button {
+      background-color: #ff0032;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
 a {
   color: #00B7FF;
 }

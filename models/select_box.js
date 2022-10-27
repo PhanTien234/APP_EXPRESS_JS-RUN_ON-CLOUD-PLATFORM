@@ -1,8 +1,9 @@
-var pg_con = require('./pg_config')
+var pg_con = require('./Postgresql_config/pg_config')
 async function gen_box(){
     // Query DB to get the table data
     let shop_query='Select shops.id,shops.name,users.role From shops JOIN users ON shops.id=users.shop_id ORDER BY Id';
     const data = await pg_con.query(shop_query)
+    // make a form select option
     let box_string=
         `<table border ='1'>
             <tr>

@@ -21,6 +21,7 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+// POST crud function for users
 router.post('/crud', async function(req, res, next) {
   session = req.session;
   console.log(req.body);

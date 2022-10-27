@@ -42,6 +42,7 @@ router.post('/login', async function(req, res, next) {
 
 });
 
+// Get logout and render 'login' page
 router.get('/logout', function(req, res, next) {
   req.session.destroy();
   res.render('login', {title: 'ATN SHOP', message: 'you logout please return sign in'});
