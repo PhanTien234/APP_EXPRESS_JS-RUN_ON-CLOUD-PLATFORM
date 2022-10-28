@@ -20,28 +20,20 @@ var pg_con = require('./Postgresql_config/pg_config')
       border-collapse: collapse;
       width: 100%;
     }
-    .add-button {
-      background-color: #4dff00;
-    }
-    .update-button {
-      background-color: #e8ff00;
-    }
-    .delete-button {
-      background-color: #ff0032;
-    }
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    tr:nth-child(even) {
-      background-color: #dddddd;
+   
+    .heading {
+      font-weight: bold;
+      text-align: center;
+      font-size: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: green;
     }
     </style>
     </head>
     <body>
-    <h2>Table products</h2>
-    <table>
+    <h2 class="heading">Table products</h2>
+    <table class="table">
       <tr>`;
         //display all table's header
         let num_fields = data.fields.length;
@@ -63,8 +55,10 @@ var pg_con = require('./Postgresql_config/pg_config')
             // make a form delete and update button
             table_string += 
             `<td>
-            <button type='submit' class= 'delete-button' name='crud' value='delete'>Delete</button>
-            <button type='submit' class='update-button' name='crud' value='update'>Update</button>
+            <button type='submit' name='crud' 
+              class= "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" value='delete'>Delete</button>
+            <button type='submit' 
+              class= "bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" name='crud' value='update'>Update</button>
             </td>
             </tr></form>`
         }
@@ -77,7 +71,8 @@ var pg_con = require('./Postgresql_config/pg_config')
         // make a form Add button
         table_string += `
         <td>
-            <button type='submit' class= 'add-button' name='crud' value='add'>Add</button>
+            <button type='submit' 
+              class= "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" name='crud' value='add'>Add</button>
         </td> `;
     table_string += `</tr></form></table>`;
     // console.log("DATA: -->");
