@@ -10,14 +10,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="img" background="images/background5.jpg">
   <nav class="navbar" style="background-color: orange;">
     <div class="container-fluid">
       <a class="btn btn-primary" href="/">Home</a>
       <a class="btn btn-outline-danger" href="https://app-atnshop1.herokuapp.com/logout">Log out</a>
     </div>
   </nav>
-  <h1 class="text-xl text-center mt-1 mb-1"><%= title %> Dashboard</h1>
+  <h1 class="text-xl text-blue-600 text-center mt-1 mb-1"><%= title %> Dashboard</h1>
     <div><%- select_box %> <%- table_string %></div>  
 </body>
 <!--Auto refresh page-->
