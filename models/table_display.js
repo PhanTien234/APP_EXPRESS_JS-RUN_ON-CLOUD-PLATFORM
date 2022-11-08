@@ -27,7 +27,7 @@ var pg_con = require('./Postgresql_config/pg_config')
       font-size: 20px;
       margin-top: 10px;
       margin-bottom: 10px;
-      color: yellow;
+      color: green;
     }
     </style>
     </head>
